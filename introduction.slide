@@ -1,0 +1,187 @@
+The Go programming language
+A fast smooth introduction to the language
+15:04 17 Feb 2017
+Tags: golang, introduction, discovery
+
+Yannick Heinrich
+EEA Engineer, SQLI Suisse SA
+blog@yageek.net
+http://blog.yageek.net
+@yageek
+
+* Summary
+- Caveats in software development
+- Go at the rescue
+- Go AFK
+- Go from the trenches
+
+* Issue #1 - Readability and Confidence
+
+- You barely work alone on the code.
+- If yes, your code will stay, but for you we never know.
+- Choose one: use old legacy unreadable code or start from scratch?
+- Highly typed language help a lot. 
+
+.image ./images/tweet_readability.png
+
+* Issue #2 - Deployment/Distribution
+
+- Packaging can be hard (maven, npm, ruby)
+- Accessing libraries registers may need mirroring.
+- How fast can you react to a serious issue and redeploy?
+- Does it support both BSD and Linux?
+
+*Deployment*with*Rails*at*Parse.com*
+
+- 20 minutes to do a full deploy or rollback
+- Unicorn, Capistrano, RVM, lots of gems 
+
+.link http://blog.parse.com/learn/how-we-moved-our-api-from-ruby-to-go-and-saved-our-sanity/ How We Moved Our API From Ruby to Go and Saved Our Sanity
+
+* Issue #3 - Performance and Concurrency
+
+- The less server you use, the less it will cost.
+- Dealing with concurrency is really complex.
+- How to correctly use multi-core system?
+
+* Go at the rescue
+* Deal with Issue #1 - Readability and Confidence
+
+- Only one valid syntax
+- Highly typed
+- Limit magic to the minimum
+
+* Deal with Issue #2 - Deployment/Distribution
+
+- No dependency hells, you get everything in one binary.
+- Support Linux, Mac Os X, FreeBSD, NetBSD, OpenBSD, MS-Windows and Plan 9 (just in case).
+- x86, amd64, ppc64, s390x, ARM, ARM64... with cross-compilation
+
+* Deal with Issue #2 - Performance and Concurrency
+
+- More and more efficient GC
+- Does not rely on libc to make system calls.
+- Possibility to use Plan9 assembly to optimize
+- Synchronisation based on [[http://spinroot.com/courses/summer/Papers/hoare_1978.pdf][CSP]] (like Erlang, Rust, Akka in Scala)
+- Use kind of _Green_Threads_ mapped on OS threads called *goroutine*
+
+* Bonus
+* The standard library covers almost everything
+
+- SQL Database
+- Syscall
+- TCP/IP, FTP, HTTP, SMTP, 
+- JSON, XML, HTML, templating, CSV
+- Unicode
+- Image processing
+- Crypto: RSA, AES, DES, SHA, TLS, x509
+- Compression: bz2, gz, lzw, zip
+- Math
+- Go AST, debug, sytax
+- Reflection (introspection)
+- Testing framework (assertions)
+
+* Some awesome Go projects
+
+Celebrities:
+- [[https://docker.io][Docker]]: An open platform for distributed applications for developers and sysadmins
+- [[https://www.consul.io][consul]]: Service Discovery
+- [[https://github.com/coreos/etcd][etcd]]: Key-value store for shared configuration and service discovery
+- [[https://www.terraform.io][Terraform]]: Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
+
+Others:
+- [[http://limetext.org/][limetext]]: Lime Text is a powerful and elegant text editor primarily developed in Go that aims to be a Free and open-source software successor to Sublime Text.
+- [[https://github.com/fogleman/nes][nes]]: A Nintendo Entertainment System (NES) emulator written in Go
+- [[https://github.com/boltdb/bolt][bolt]]: A low-level key/value database for Go.
+- [[https://github.com/google/cayley][cayley]]: A graph database with support for multiple backends.
+- [[https://gopherjs.github.io][gopherJS]]: GopherJS - A compiler from Go to JavaScript (Goroutine included)
+
+* Go AFK
+* Gopher is the new hipster
+
+- Interest is growing good
+.image ./images/evolution.png _ 950
+.caption The growth of Google searches for the term "golang" over the years
+
+- Dozen of Go User Groups
+- Big meetings: dotGo, GopherIndia, GothamGo, GopherCon, GoCon
+* Who uses Go?
+
+Internet:
+- Google, Uber, Yahoo, Youtube, Zalando, Atlassian, Reddit, Netflix, Facebook, Dropbox, Disqus, Tumblr, Twitch, Heroku, Cloudfare, SoundCloud,...
+
+Nerds:
+- Github, Sourcegraph
+
+You did not expect them:
+- BBC, Novartis, Thomson Reuters, The New-York Times
+
+Games:
+- Zynga
+
+
+.link https://code.google.com/p/go-wiki/wiki/GoUsers More Golang User
+
+* Go from the trenches
+* Go history
+
+- Project started as internal project at Google in 2007 and Open-sourced in 2009 with a BSD-style license
+- Backed by brilliant engineers: Rob Pike, Kenneth Thomson, Robert Griesemer, Brad Fitzpatrick and many others.
+- Nice mascot
+
+.image ./images/gophers.png
+.caption _Gopher_ by [[http://www.reneefrench.com][Renée French]]
+
+* Variables
+.play code/variables.go
+
+* Error management
+.play code/errors.go
+
+* Custom type
+.play code/custom_types_2.go
+
+* Composition over inheritance
+.play code/composition.go
+
+* Interface and Duck typing
+- _When_I_see_a_bird_that_walks_like_a_duck_and_swims_like_a_duck_and_quacks_like_a_duck,_I_call_that_bird_a_duck_  James Whitcomb Riley
+- Go deals with polymorphism through the concept of _interface_
+- If a struct implements all the methods defined in the interface, it is compatible with it
+- No coupling between foreign packages
+- Interface should be considered as pointer
+
+* 
+.play code/interfaces.go
+
+* Goroutine
+.play code/goroutine.go
+
+* Channel
+
+.play code/channel.go
+
+* Channel
+
+.play code/channel_2.go
+
+* Select
+
+.play code/select.go
+
+* Conclusion
+- Abuse of Go !
+- Start the Go Tour:  [[http://tour.golang.org]]
+- See the Go Codewalks: [[https://golang.org/doc/codewalk/]]
+
+* References
+- The bible, coran and torah: [[http://golang.org]]
+- The Go blog: [[http://blog.golang.com]]
+- Main GoDoc server: [[https://godoc.org]]
+- Google: search for *golang*
+
+* Thanks
+- The Go team
+- Thanks to [[https://github.com/soulou][@soulou]] from [[https://scalingo.com][Scalingo]]
+
+* Questions
