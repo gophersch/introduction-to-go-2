@@ -9,28 +9,36 @@ blog@yageek.net
 http://blog.yageek.net
 @yageek
 
+: I'm Yannick. I work as iOS Developer at Nespresso.
+: I joined SQLI in March of this year.
+: I will present the Go programming language
+: and I hope you will give Go a chance after this presentation.
+
 * Summary
-- Caveats in software development
+: I know we have people with different background.
+: This presentation will contains some technical points.
+: Feel free to ask or correct me if necessary.
+- Issues related to software development
 - Go at the rescue
 - Go AFK
 - Go from the trenches
 
+* Issues related to software development
 * Issue #1 - Readability and Confidence
 
-- You barely work alone on the code.
-- If yes, your code will stay, but for you we never know.
+- You rarely work alone on the code.
+- If yes, your code will stay, but for concerning you, we never know.
 - Choose one: use old legacy unreadable code or start from scratch?
-- Highly typed language help a lot. 
+- Highly typed languages help a lot. 
 
 .image ./images/tweet_readability.png
 
 * Issue #2 - Deployment/Distribution
 
 - Packaging can be hard (maven, npm, ruby)
-- Accessing libraries registers may need mirroring.
-- How fast can you react to a serious issue and redeploy?
-- Does it support both BSD and Linux?
-
+- Accessing libraries registry may need mirroring.
+- The longer you take to deploy, the longer you will take to solve a production issue.
+- Targeting several OS can become painful
 *Deployment*with*Rails*at*Parse.com*
 
 - 20 minutes to do a full deploy or rollback
@@ -39,23 +47,39 @@ http://blog.yageek.net
 .link http://blog.parse.com/learn/how-we-moved-our-api-from-ruby-to-go-and-saved-our-sanity/ How We Moved Our API From Ruby to Go and Saved Our Sanity
 
 * Issue #3 - Performance and Concurrency
+.image ./images/gophercomplex5.jpg
 
 - The less server you use, the less it will cost.
-- Dealing with concurrency is really complex.
-- How to correctly use multi-core system?
+- Dealing with concurrency can become seriously complex.
+- Some interpreted languages does not allow parallelism (CRuby, CPython).
+
+.link https://en.wikipedia.org/wiki/Global_interpreter_lock Global interpreter lock
+.link https://www.igvita.com/2008/11/13/concurrency-is-a-myth-in-ruby/ Parallelism is a Myth in Ruby
 
 * Go at the rescue
 * Deal with Issue #1 - Readability and Confidence
+_Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 
 - Only one valid syntax
 - Highly typed
 - Limit magic to the minimum
+
+	package main ; import "fmt" ; func main() { 
+	fmt.Println("Hello, 世界"); }
+
+`$`go`fmtmain.go`
+
+.play code/syntax.go
 
 * Deal with Issue #2 - Deployment/Distribution
 
 - No dependency hells, you get everything in one binary.
 - Support Linux, Mac Os X, FreeBSD, NetBSD, OpenBSD, MS-Windows and Plan 9 (just in case).
 - x86, amd64, ppc64, s390x, ARM, ARM64... with cross-compilation
+
+	$ GOOS=windows GOARCH=386 go build main.go
+	$ GOOS=darwin GOARCH=amd64 go build main.go
+	$ GOOS=freebds GOARCH=arm GOARM=5 go build main.go
 
 * Deal with Issue #2 - Performance and Concurrency
 
@@ -64,6 +88,19 @@ http://blog.yageek.net
 - Possibility to use Plan9 assembly to optimize
 - Synchronisation based on [[http://spinroot.com/courses/summer/Papers/hoare_1978.pdf][CSP]] (like Erlang, Rust, Akka in Scala)
 - Use kind of _Green_Threads_ mapped on OS threads called *goroutine*
+
+* 
+.link https://www.whitesmith.co/blog/why-i-started-to-use-golang-more-than-python-or-ruby/ Why I started to use Golang more than Python or Ruby?
+.image ./images/performance.png 
+.caption Comparison of performance for single page http servers
+
+* 
+.link http://blog.iron.io/2013/03/how-we-went-from-30-servers-to-2-go.html Iron.IO - How We Went from 30 Servers to 2: Go
+
+- Dropped from 30 to 2 servers and the second server was used only for redundancy.
+- CPU utilization dropped to less than 5%.
+- Memory usage dropped. Only a "few hundred KB's of memory (on startup) vs our Rails apps which were ~50MB (on startup)". 
+
 
 * Bonus
 * The standard library covers almost everything
