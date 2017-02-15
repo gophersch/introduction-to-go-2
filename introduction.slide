@@ -139,7 +139,7 @@ Games:
 .play code/errors.go
 
 * Custom type
-.play code/custom_types_2.go
+.play -edit code/custom_types_2.go
 
 * Composition over inheritance
 .play code/composition.go
