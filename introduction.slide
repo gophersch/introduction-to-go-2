@@ -16,8 +16,8 @@ http://blog.yageek.net
 
 * Summary
 : I know we have people with different background.
-: This presentation will contains some technical points.
 : Feel free to ask or correct me if necessary.
+: About issues: issue I think are the main one.
 - Issues related to software development
 - Go at the rescue
 - Go AFK
@@ -26,11 +26,9 @@ http://blog.yageek.net
 * Issues related to software development
 * Issue #1 - Readability and Confidence
 
+: May be the most important one.
 - You rarely work alone on the code.
 - If yes, your code will stay, but for concerning you, we never know.
-- Choose one: use old legacy unreadable code or start from scratch?
-- Highly typed languages help a lot. 
-
 .image ./images/tweet_readability.png
 
 * Issue #2 - Deployment/Distribution
@@ -46,6 +44,21 @@ http://blog.yageek.net
 
 .link http://blog.parse.com/learn/how-we-moved-our-api-from-ruby-to-go-and-saved-our-sanity/ How We Moved Our API From Ruby to Go and Saved Our Sanity
 
+* Reminder
+ 
+- Concurrency !== Parallelism
+- Concurrency: Programming as the composition of independently executing processes.
+- Parallelism: Programming as the simultaneous execution of (possibly related) computations
+
+.image ./images/threads.png _ 800
+
+: Concurrency is about dealing with lots of things at once.
+: Parallelism is about doing lots of things at once.
+: Not the same, but related.
+: Concurrency is about structure, parallelism is about execution.
+: Concurrency provides a way to structure a solution to solve a problem that may (but not necessarily) be parallelizable.
+
+
 * Issue #3 - Performance and Concurrency
 .image ./images/gophercomplex5.jpg
 
@@ -60,20 +73,16 @@ http://blog.yageek.net
 * Deal with Issue #1 - Readability and Confidence
 _Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 
-- Only one valid syntax
-- Highly typed
-- Limit magic to the minimum
-
-	package main ; import "fmt" ; func main() { 
-	fmt.Println("Hello, 世界"); }
-
-`$`go`fmtmain.go`
-
-.play code/syntax.go
+- One syntax to rule them all
+- Syntax is easy to read and to adopt
+- No generics but interface
+- No exceptions but error values
+- No inheritance but composition
+- Pointer but no pointer arithmetics
 
 * Deal with Issue #2 - Deployment/Distribution
 
-- No dependency hells, you get everything in one binary.
+- No dependency hell, you get one binary, period.
 - Support Linux, Mac Os X, FreeBSD, NetBSD, OpenBSD, MS-Windows and Plan 9 (just in case).
 - x86, amd64, ppc64, s390x, ARM, ARM64... with cross-compilation
 
@@ -96,9 +105,16 @@ _Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 - CPU utilization dropped to less than 5%.
 - Memory usage dropped. Only a "few hundred KB's of memory (on startup) vs our Rails apps which were ~50MB (on startup)". 
 
+* Go AFK
+* Go history
 
-* Bonus
-* The standard library covers almost everything
+- Project started as internal project at Google in 2007 and Open-sourced in 2009 with a BSD-style license
+- Backed by brilliant engineers: Rob Pike, Kenneth Thomson, Robert Griesemer, Brad Fitzpatrick and many others.
+- Nice mascot
+
+.image ./images/gophers.png
+.caption _Gopher_ by [[http://www.reneefrench.com][Renée French]]
+* Come with batteries included
 
 - SQL Database
 - Syscall
@@ -112,6 +128,15 @@ _Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 - Go AST, debug, sytax
 - Reflection (introspection)
 - Testing framework (assertions)
+
+* Gopher is the new hipster
+
+- Interest is growing good
+.image ./images/evolution.png _ 950
+.caption The growth of Google searches for the term "golang" over the years
+
+- Dozen of Go User Groups
+- Big meetings: dotGo, GopherIndia, GothamGo, GopherCon, GoCon
 
 * Some awesome Go projects
 
@@ -128,15 +153,6 @@ Others:
 - [[https://github.com/google/cayley][cayley]]: A graph database with support for multiple backends.
 - [[https://gopherjs.github.io][gopherJS]]: GopherJS - A compiler from Go to JavaScript (Goroutine included)
 
-* Go AFK
-* Gopher is the new hipster
-
-- Interest is growing good
-.image ./images/evolution.png _ 950
-.caption The growth of Google searches for the term "golang" over the years
-
-- Dozen of Go User Groups
-- Big meetings: dotGo, GopherIndia, GothamGo, GopherCon, GoCon
 * Who uses Go?
 
 Internet:
@@ -151,18 +167,9 @@ You did not expect them:
 Games:
 - Zynga
 
-
 .link https://code.google.com/p/go-wiki/wiki/GoUsers More Golang User
 
 * Go from the trenches
-* Go history
-
-- Project started as internal project at Google in 2007 and Open-sourced in 2009 with a BSD-style license
-- Backed by brilliant engineers: Rob Pike, Kenneth Thomson, Robert Griesemer, Brad Fitzpatrick and many others.
-- Nice mascot
-
-.image ./images/gophers.png
-.caption _Gopher_ by [[http://www.reneefrench.com][Renée French]]
 
 * Variables
 .play code/variables.go
