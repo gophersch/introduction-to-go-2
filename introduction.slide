@@ -90,11 +90,6 @@ _Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 - Use kind of _Green_Threads_ mapped on OS threads called *goroutine*
 
 * 
-.link https://www.whitesmith.co/blog/why-i-started-to-use-golang-more-than-python-or-ruby/ Why I started to use Golang more than Python or Ruby?
-.image ./images/performance.png 
-.caption Comparison of performance for single page http servers
-
-* 
 .link http://blog.iron.io/2013/03/how-we-went-from-30-servers-to-2-go.html Iron.IO - How We Went from 30 Servers to 2: Go
 
 - Dropped from 30 to 2 servers and the second server was used only for redundancy.
