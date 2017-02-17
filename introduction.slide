@@ -124,7 +124,7 @@ _Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 
 - SQL Database
 - Syscall
-- TCP/IP, FTP, HTTP, SMTP, 
+- TCP/IP, FTP, HTTP1/2, Http Push, SMTP, SSH, TLS
 - JSON, XML, HTML, templating, CSV
 - Unicode
 - Image processing
