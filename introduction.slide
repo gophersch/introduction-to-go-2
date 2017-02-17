@@ -10,7 +10,7 @@ http://blog.yageek.net
 @yageek
 
 : I'm Yannick. I work as iOS Developer at Nespresso.
-: I joined SQLI in March of this year.
+: I joined SQLI in March 2016.
 : I will present the Go programming language
 : and I hope you will give Go a chance after this presentation.
 
@@ -22,13 +22,12 @@ http://blog.yageek.net
 - Go at the rescue
 - Go AFK
 - Go from the trenches
-
 * Issues related to software development
 * Issue #1 - Readability and Confidence
 
 : May be the most important one.
 - You rarely work alone on the code.
-- If yes, your code will stay, but for concerning you, we never know.
+- If yes, your code will stay, but on your concern, we never know.
 .image ./images/tweet_readability.png
 
 * Issue #2 - Deployment/Distribution
@@ -49,21 +48,23 @@ http://blog.yageek.net
 - Concurrency: Programming as the composition of independently executing processes.
 - Parallelism: Programming as the simultaneous execution of (possibly related) computations
 
-* Reminder 
-
-- 1 Process === 1 Application, 1 Thread === 1 Task within an Application
-- 1 Thread ber CPU/Core
-- Thread operations are costly in time
-
-.image ./images/ThreadDiagram.png
-.caption Typical relationsip between threads and processes. http://www.javamex.com/tutorials/threads/how_threads_work.shtml
-
 : Concurrency is about dealing with lots of things at once.
 : Parallelism is about doing lots of things at once.
 : Not the same, but related.
 : Concurrency is about structure, parallelism is about execution.
 : Concurrency provides a way to structure a solution to solve a problem that may (but not necessarily) be parallelizable.
 
+* Reminder 
+
+- 1 Process === 1 Application, 1 Thread === 1 Task within an Application
+- 1 Thread ber CPU/Core
+- Thread operations are costly in time
+
+: Apache long time ago, spawn a thread per visitor
+: Syscalls are costly too.
+
+.image ./images/ThreadDiagram.png
+.caption Typical relationsip between threads and processes. http://www.javamex.com/tutorials/threads/how_threads_work.shtml
 
 * Issue #3 - Performance and Concurrency
 .image ./images/gophercomplex5.jpg
