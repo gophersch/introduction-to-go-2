@@ -32,11 +32,10 @@ http://blog.yageek.net
 .image ./images/tweet_readability.png
 
 * Issue #2 - Deployment/Distribution
-
-- Packaging can be hard (maven, npm, ruby)
-- Accessing libraries registry may need mirroring.
 - The longer you take to deploy, the longer you will take to solve a production issue.
+- Accessing libraries registry may need Github mirroring.
 - Targeting several OS can become painful
+
 *Deployment*with*Rails*at*Parse.com*
 
 - 20 minutes to do a full deploy or rollback
@@ -50,7 +49,14 @@ http://blog.yageek.net
 - Concurrency: Programming as the composition of independently executing processes.
 - Parallelism: Programming as the simultaneous execution of (possibly related) computations
 
-.image ./images/threads.png _ 800
+* Reminder 
+
+- 1 Process === 1 Application, 1 Thread === 1 Task within an Application
+- 1 Thread ber CPU/Core
+- Thread operations are costly in time
+
+.image ./images/ThreadDiagram.png
+.caption Typical relationsip between threads and processes. http://www.javamex.com/tutorials/threads/how_threads_work.shtml
 
 : Concurrency is about dealing with lots of things at once.
 : Parallelism is about doing lots of things at once.
@@ -74,30 +80,29 @@ http://blog.yageek.net
 _Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 
 - One syntax to rule them all
-- Syntax is easy to read and to adopt
-- No generics but interface
+- Duck typing checked at compilation 
+- No generics
 - No exceptions but error values
 - No inheritance but composition
 - Pointer but no pointer arithmetics
 
 * Deal with Issue #2 - Deployment/Distribution
 
+- No more sword fight
 - No dependency hell, you get one binary, period.
-- Support Linux, Mac Os X, FreeBSD, NetBSD, OpenBSD, MS-Windows and Plan 9 (just in case).
-- x86, amd64, ppc64, s390x, ARM, ARM64... with cross-compilation
+- Cross-Platform, Cross-Architecture and Cross-compilation just easy 
 
-	$ GOOS=windows GOARCH=386 go build main.go
-	$ GOOS=darwin GOARCH=amd64 go build main.go
-	$ GOOS=freebds GOARCH=arm GOARM=5 go build main.go
-
+.image ./images/compiling.png
+.caption https://xkcd.com/303/
 * Deal with Issue #2 - Performance and Concurrency
 
-- More and more efficient GC
-- Does not rely on libc to make system calls.
-- Possibility to use Plan9 assembly to optimize
+- 100% native code
+- No libc, but native C FFI.
+- Optimization with Assembly
 - Synchronisation based on [[http://spinroot.com/courses/summer/Papers/hoare_1978.pdf][CSP]] (like Erlang, Rust, Akka in Scala)
 - Use kind of _Green_Threads_ mapped on OS threads called *goroutine*
 
+: Communicating Sequential Processes
 * 
 .link http://blog.iron.io/2013/03/how-we-went-from-30-servers-to-2-go.html Iron.IO - How We Went from 30 Servers to 2: Go
 
@@ -110,7 +115,8 @@ _Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 
 - Project started as internal project at Google in 2007 and Open-sourced in 2009 with a BSD-style license
 - Backed by brilliant engineers: Rob Pike, Kenneth Thomson, Robert Griesemer, Brad Fitzpatrick and many others.
-- Nice mascot
+- Developed to be good targeting server development.
+- In fact, good for a lot of other stuff.
 
 .image ./images/gophers.png
 .caption _Gopher_ by [[http://www.reneefrench.com][Renée French]]
@@ -147,10 +153,9 @@ Celebrities:
 - [[https://www.terraform.io][Terraform]]: Terraform is a tool for building, changing, and combining infrastructure safely and efficiently.
 
 Others:
+- [[https://github.com/golang/go/wiki/Mobile][Go Mobile]]: Java <-> Go, Objective-C <-> Go
 - [[http://limetext.org/][limetext]]: Lime Text is a powerful and elegant text editor primarily developed in Go that aims to be a Free and open-source software successor to Sublime Text.
 - [[https://github.com/fogleman/nes][nes]]: A Nintendo Entertainment System (NES) emulator written in Go
-- [[https://github.com/boltdb/bolt][bolt]]: A low-level key/value database for Go.
-- [[https://github.com/google/cayley][cayley]]: A graph database with support for multiple backends.
 - [[https://gopherjs.github.io][gopherJS]]: GopherJS - A compiler from Go to JavaScript (Goroutine included)
 
 * Who uses Go?
@@ -186,10 +191,7 @@ Games:
 * Interface and Duck typing
 - _When_I_see_a_bird_that_walks_like_a_duck_and_swims_like_a_duck_and_quacks_like_a_duck,_I_call_that_bird_a_duck_  James Whitcomb Riley
 - Go deals with polymorphism through the concept of _interface_
-- If a struct implements all the methods defined in the interface, it is compatible with it
-- No coupling between foreign packages
-- Interface should be considered as pointer
-
+- No need to import the interface, just implement
 * 
 .play code/interfaces.go
 
