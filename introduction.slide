@@ -26,9 +26,11 @@ http://blog.yageek.net
 * Issue #1 - Readability and Confidence
 
 : May be the most important one.
+
+.image ./images/tweet_readability.png
 - You rarely work alone on the code.
 - If yes, your code will stay, but on your concern, we never know.
-.image ./images/tweet_readability.png
+
 
 * Issue #2 - Deployment/Distribution
 - The longer you take to deploy, the longer you will take to solve a production issue.
