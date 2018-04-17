@@ -1,10 +1,10 @@
 The Go programming language
 A fast smooth introduction to the language
-15:04 17 Feb 2017
+15:04 18 Apr 2018
 Tags: golang, introduction, discovery
 
 Yannick Heinrich
-EEA Engineer, SQLI Suisse SA
+EEA Engineer, Swissquote SA
 blog@yageek.net
 http://blog.yageek.net
 @yageek
@@ -97,7 +97,7 @@ _Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 
 .image ./images/compiling.png
 .caption https://xkcd.com/303/
-* Deal with Issue #2 - Performance and Concurrency
+* Deal with Issue #3 - Performance and Concurrency
 
 - 100% native code
 - No libc, but native C FFI.
