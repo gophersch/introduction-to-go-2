@@ -9,15 +9,15 @@ blog@yageek.net
 http://blog.yageek.net
 @yageek
 
-: I'm Yannick. I work as iOS Developer at Nespresso.
-: I joined SQLI in March 2016.
+: I'm Yannick. I work as iOS Developer in the mobile development department.
+: I joined SQ in April 2018.
 : I will present the Go programming language
 : and I hope you will give Go a chance after this presentation.
 
 * Summary
 : I know we have people with different background.
 : Feel free to ask or correct me if necessary.
-: About issues: issue I think are the main one.
+: About issues: issue I think are the main ones.
 - Issues related to software development
 - Go at the rescue
 - Go AFK
@@ -107,7 +107,7 @@ _Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 
 : Communicating Sequential Processes
 * 
-.link http://blog.iron.io/2013/03/how-we-went-from-30-servers-to-2-go.html Iron.IO - How We Went from 30 Servers to 2: Go
+.link https://blog.iron.io/how-we-went-from-30-servers-to-2-go/ Iron.IO - How We Went from 30 Servers to 2: Go
 
 - Dropped from 30 to 2 servers and the second server was used only for redundancy.
 - CPU utilization dropped to less than 5%.
