@@ -82,6 +82,8 @@ _Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 
 - One syntax to rule them all
 - Duck typing checked at compilation 
+- Strongly typed
+- Feels good like C, C++ without malloc and free (Mark and Sweep GC)
 - No generics
 - No exceptions but error values
 - No inheritance but composition
@@ -126,6 +128,7 @@ _Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 
 .image ./images/gophers.png
 .caption _Gopher_ by [[http://www.reneefrench.com][Renée French]]
+
 * Come with batteries included
 
 - SQL Database
@@ -181,7 +184,6 @@ Games:
 .link https://code.google.com/p/go-wiki/wiki/GoUsers More Golang User
 
 * Go from the trenches
-
 * Variables
 .play code/variables.go
 
