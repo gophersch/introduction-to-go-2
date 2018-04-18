@@ -42,8 +42,6 @@ http://blog.yageek.net
 - 20 minutes to do a full deploy or rollback
 - Unicorn, Capistrano, RVM, lots of gems 
 
-.link http://blog.parse.com/learn/how-we-moved-our-api-from-ruby-to-go-and-saved-our-sanity/ How We Moved Our API From Ruby to Go and Saved Our Sanity
-
 * Reminder
  
 - Concurrency !== Parallelism
@@ -112,6 +110,11 @@ _Syntax_is_not_important..._-_unless_you_are_a_programmer_, Rob Pike
 - Dropped from 30 to 2 servers and the second server was used only for redundancy.
 - CPU utilization dropped to less than 5%.
 - Memory usage dropped. Only a "few hundred KB's of memory (on startup) vs our Rails apps which were ~50MB (on startup)". 
+
+.link http://blog.parseplatform.org/learn/how-we-moved-our-api-from-ruby-to-go-and-saved-our-sanity/ How We Moved Our API From Ruby to Go and Saved Our Sanity
+- 250k connections per node to 1.5 million connections per node
+- full integration test suite dropped from 25 minutes to 2 minutes
+- full API server deploy with rolling restarts dropped from 30 minutes to 3 minutes
 
 * Go AFK
 * Go history
